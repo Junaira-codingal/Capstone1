@@ -9,13 +9,14 @@
         margin: 0;
         font-family: Arial, Helvetica, sans-serif;
         font-weight: 600;
+        background-color: #bbbbbb46;
       }
 
       .topnav {
         display: flex;
         justify-content: space-between;
         align-items: center;
-        background: linear-gradient(to right, #ec008c, #fc6767);
+        background: linear-gradient(to right, #ff416c, #ff4b2b);
         padding: 0 30px;
         height: 80px;
       }
@@ -67,6 +68,14 @@
         width: 100%;
         position: relative;
         margin: 0;
+        height: 400px;
+        overflow: hidden;
+      }
+
+      .slideshow-container img {
+        height: 100%;
+        width: 100%;
+        object-fit: cover;
       }
 
       .mySlides {
@@ -144,6 +153,93 @@
           opacity: 1;
         }
       }
+      .section {
+        margin-bottom: 80px;
+        background-color: white;
+      }
+      .image-box {
+        position: relative;
+        height: 350px;
+        background-size: cover;
+        background-position: center;
+        border-radius: 10px;
+      }
+      .image-text {
+        position: absolute;
+        bottom: 10px;
+        left: 10px;
+        right: 10px;
+        background-color: rgb(255, 254, 254);
+        color: rgb(179, 19, 19);
+        padding: 15px;
+        font-size: 20px;
+        font-weight: bold;
+        border-radius: 5px;
+        text-align: center;
+        box-shadow: 0px 0px 20px black;
+        text-shadow: 0px 0px 14px rgb(93, 13, 74);
+      }
+      .description {
+        margin-top: 15px;
+        text-align: center;
+      }
+      .description ul {
+        text-align: left;
+        max-width: 500px;
+        margin: 10px auto;
+        padding-left: 20px;
+      }
+      .description ul li {
+        margin-bottom: 6px;
+        color: #717171;
+        font-style: italic;
+      }
+      footer {
+        background-color: #c04b4b;
+        padding: 40px;
+        color: #eee;
+        font-family: Arial, Helvetica, sans-serif;
+      }
+
+      .footer-container {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        gap: 20px;
+        max-width: 1200px;
+        margin: auto;
+      }
+      .footer-box {
+        flex: 1 1 200px;
+      }
+      .footer-box h4,
+      .footer-box h3 {
+        margin-bottom: 10px;
+        color: #fff;
+      }
+      .footer-box ul {
+        list-style: none;
+        padding: 0;
+      }
+      .footer-box ul li {
+        margin-bottom: 8px;
+        color: #ccc;
+      }
+      .footer-box ul li a {
+        text-decoration: none;
+        color: #fff;
+      }
+      .footer-box ul li a:hover {
+        text-decoration: underline;
+        color: #fff;
+      }
+      .footer-bottom {
+        text-align: center;
+        padding-top: 20px;
+        border-top: 1px solid #333;
+        color: #aaa;
+        font-size: 14px;
+      }
     </style>
   </head>
 
@@ -170,7 +266,7 @@
       <div class="mySlides fade">
         <div class="numbertext">1 / 3</div>
         <img
-          src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQlyu2X9h47l8dHglM2baaRja5EE8fS6jXJlg&s"
+          src="https://media.istockphoto.com/id/1829241109/photo/enjoying-a-brunch-together.jpg?s=612x612&w=0&k=20&c=9awLLRMBLeiYsrXrkgzkoscVU_3RoVwl_HA-OT-srjQ="
           style="width: 100%"
         />
       </div>
@@ -178,7 +274,7 @@
       <div class="mySlides fade">
         <div class="numbertext">2 / 3</div>
         <img
-          src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTSIwU4EAWesgPpmgIQGRiqV8qMB9CWkoavGHs7C8CC5yAJC2wrMoCXDMovGZbW4lCzao4&usqp=CAU"
+          src="https://qul.imgix.net/92463374-c045-4e77-abdc-367fbfda4947/527795_sld.jpg"
           style="width: 100%"
         />
       </div>
@@ -186,7 +282,7 @@
       <div class="mySlides fade">
         <div class="numbertext">3 / 3</div>
         <img
-          src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTv2Amag04ZorRiZdWjrzNfX-08evVC_QHdIw&s"
+          src="https://dynamic-media-cdn.tripadvisor.com/media/photo-o/1a/f1/9d/a8/la-divina-selection.jpg?w=500&h=-1&s=1"
           style="width: 100%"
         />
       </div>
@@ -199,6 +295,95 @@
       <span class="dot" onclick="currentSlide(2)"></span>
       <span class="dot" onclick="currentSlide(3)"></span>
     </div>
+    <div class="section">
+      <div
+        class="image-box"
+        style="
+          background-image: url('https://visitingparisbyyourself.com/wp-content/uploads/2020/11/Repas-restaurant-breakfeast-french-croissant-bread-jam-viennoiseries-opt-1.jpg');
+        "
+      >
+        <div class="image-text">Fast food chain restaurant</div>
+      </div>
+      <div class="description">
+        <ul>
+          <li>Flavors? On point. Chef’s kiss</li>
+          <li>This plate deserves a standing ovation 🍛👏</li>
+          <li>Every bite felt like a love letter to my taste buds 💌</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="section">
+      <div
+        class="image-box"
+        style="
+          background-image: url('https://www.tastingtable.com/img/gallery/why-french-fries-taste-better-at-a-restaurant-than-at-home/intro-1684168667.jpg');
+        "
+      >
+        <div class="image-text">Established in 2020</div>
+      </div>
+      <div class="description">
+        <ul>
+          <li>Vibes + food = perfection combo 🕯️🍽️</li>
+          <li>Came for the food, stayed for the experience ✨</li>
+          <li>This isn’t just a meal, it’s an emotion 🥹🍲</li>
+        </ul>
+      </div>
+    </div>
+    <div class="section">
+      <div
+        class="image-box"
+        style="
+          background-image: url('https://www.tastingtable.com/img/gallery/what-makes-restaurant-burgers-taste-different-from-homemade-burgers-upgrade/l-intro-1662064407.jpg');
+        "
+      >
+        <div class="image-text">Quality & Hygiene</div>
+      </div>
+      <div class="description">
+        <ul>
+          <li>If food is art, this place is the Louvre 🎨🍝</li>
+          <li>From starters to dessert – slayage all the way 😋🔥</li>
+          <li>Someone give the chef a trophy already 🏆👨‍🍳</li>
+        </ul>
+      </div>
+    </div>
+    <footer class="footer">
+      <div class="footer-container">
+        <div class="footer-box">
+          <h3>Kudos</h3>
+          <p>Quality and Hygin maintain food</p>
+        </div>
+        <div class="footer-box">
+          <h4>Quick Links</h4>
+          <ul>
+            <li><a href="#">Home</a></li>
+            <li><a href="#">About</a></li>
+            <li><a href="#">Gallery</a></li>
+            <li><a href="#">Menu</a></li>
+            <li><a href="#">Reservations</a></li>
+          </ul>
+        </div>
+        <div class="footer-box">
+          <h4>Services</h4>
+          <ul>
+            <li><a href="#">A1 quality</a></li>
+            <li><a href="#">Delivery in 60 minuits</a></li>
+            <li><a href="#">SEO</a></li>
+          </ul>
+        </div>
+        <div class="footer-box">
+          <h4>Contact</h4>
+          <ul>
+            <li>Email: info@example.com</li>
+            <li>Phone: =123 456 789</li>
+            <li>Location: City, country</li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2025 MyWebsite. All right reserved</p>
+      </div>
+    </footer>
 
     <script>
       let slideIndex = 1;
