@@ -3,26 +3,59 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Gradient Navbar</title>
+    <meta
+      name="description"
+      content="The Culinary Haven offers exquisite dining with fresh ingredients and a warm ambiance."
+    />
+    <title>The Culinary Haven - Exquisite Dining</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Roboto:wght@400;500&display=swap"
+      rel="stylesheet"
+    />
     <style>
+      * {
+        box-sizing: border-box;
+      }
+
       body {
         margin: 0;
-        font-family: Arial, Helvetica, sans-serif;
-        font-weight: 600;
-        background-color: #bbbbbb46;
+        font-family: "Roboto", Arial, Helvetica, sans-serif;
+        font-weight: 400;
+        background-color: #f8f9fa;
+        color: #333;
+        line-height: 1.6;
+      }
+
+      .container {
+        max-width: 1400px;
+        margin: 0 auto;
+        padding: 0 20px;
       }
 
       .topnav {
         display: flex;
         justify-content: space-between;
         align-items: center;
-        background: linear-gradient(to right, #ff416c, #ff4b2b);
-        padding: 0 30px;
+        background: linear-gradient(to right, #a83a7b, #f05c5c, #ff8c38);
+        padding: 0 40px;
         height: 80px;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        position: sticky;
+        top: 0;
+        z-index: 1000;
+        transition: background-color 0.3s ease;
       }
 
       .logo img {
         height: 60px;
+        border-radius: 50%;
+        transition: transform 0.3s ease;
+      }
+
+      .logo img:hover {
+        transform: scale(1.1);
       }
 
       .nav-links {
@@ -32,50 +65,58 @@
 
       .nav-links a {
         position: relative;
-        color: rgba(225, 202, 152, 0.995);
+        color: #fff;
         text-decoration: none;
         font-size: 17px;
-        padding: 10px;
-        transition: 0.3s;
+        padding: 10px 15px;
+        font-weight: 500;
+        transition: all 0.3s ease;
       }
 
       .nav-links a::after {
         content: "";
         position: absolute;
-        bottom: -5px;
-        left: 0;
-        height: 3px;
+        bottom: 5px;
+        left: 50%;
+        transform: translateX(-50%);
+        height: 2px;
         width: 0;
-        background-color: rgb(31, 2, 27);
-        transition: width 0.3s ease-out;
+        background-color: #fff;
+        transition: width 0.3s ease;
       }
 
       .nav-links a:hover {
-        color: #e2e79f;
-        background-color: #00000026;
+        background-color: rgba(255, 255, 255, 0.1);
         border-radius: 5px;
       }
 
       .nav-links a:hover::after {
-        width: 100%;
+        width: 70%;
       }
 
       .nav-links .active {
-        color: #fff;
         font-weight: bold;
+        background-color: rgba(255, 255, 255, 0.15);
+        border-radius: 5px;
       }
+
       .slideshow-container {
         width: 100%;
         position: relative;
-        margin: 0;
-        height: 400px;
+        height: 550px;
         overflow: hidden;
+        margin: 0;
       }
 
       .slideshow-container img {
         height: 100%;
         width: 100%;
         object-fit: cover;
+        transition: transform 0.5s ease;
+      }
+
+      .mySlides:hover img {
+        transform: scale(1.05);
       }
 
       .mySlides {
@@ -87,57 +128,75 @@
         cursor: pointer;
         position: absolute;
         top: 50%;
-        width: auto;
-        margin-top: -22px;
-        padding: 16px;
-        color: white;
-        font-weight: bold;
-        font-size: 18px;
-        transition: 0.6s ease;
-        border-radius: 0 3px 3px 0;
-        user-select: none;
+        transform: translateY(-50%);
+        padding: 15px;
+        color: #fff;
+        font-size: 24px;
+        background-color: rgba(0, 0, 0, 0.5);
+        border-radius: 50%;
+        transition: background-color 0.3s ease, transform 0.3s ease;
       }
 
       .next {
-        right: 0;
-        border-radius: 3px 0 0 3px;
+        right: 20px;
+      }
+
+      .prev {
+        left: 20px;
       }
 
       .prev:hover,
       .next:hover {
         background-color: rgba(0, 0, 0, 0.8);
+        transform: scale(1.1);
       }
+
       .text {
-        color: #f2f2f2;
-        font-size: 15px;
-        padding: 8px 12px;
+        color: #fff;
+        font-size: 20px;
+        padding: 15px;
         position: absolute;
-        bottom: 8px;
+        bottom: 20px;
         width: 100%;
         text-align: center;
+        background: linear-gradient(to top, rgba(0, 0, 0, 0.7), transparent);
+        font-family: "Playfair Display", serif;
+        font-weight: 700;
+        letter-spacing: 1px;
       }
+
       .numbertext {
-        color: #f2f2f2;
-        font-size: 12px;
-        padding: 8px 12px;
+        color: #fff;
+        font-size: 14px;
+        padding: 10px 15px;
         position: absolute;
-        top: 0;
+        top: 10px;
+        left: 10px;
+        background-color: rgba(0, 0, 0, 0.5);
+        border-radius: 3px;
+      }
+
+      .dots-container {
+        text-align: center;
+        padding: 15px 0;
+        background-color: #fff;
       }
 
       .dot {
         cursor: pointer;
-        height: 15px;
-        width: 15px;
-        margin: 0 2px;
+        height: 12px;
+        width: 12px;
+        margin: 0 8px;
         background-color: #bbb;
         border-radius: 50%;
         display: inline-block;
-        transition: background-color 0.6s ease;
+        transition: background-color 0.3s ease, transform 0.3s ease;
       }
 
-      .active,
-      .dot:hover {
-        background-color: #717171;
+      .dot:hover,
+      .dot.active {
+        background-color: #e94057;
+        transform: scale(1.2);
       }
 
       .fade {
@@ -147,98 +206,294 @@
 
       @keyframes fade {
         from {
-          opacity: 0.4;
+          opacity: 0.3;
         }
         to {
           opacity: 1;
         }
       }
+
       .section {
-        margin-bottom: 80px;
-        background-color: white;
+        padding: 50px 20px;
+        max-width: 1200px;
+        margin: 50px auto;
+        background-color: #fff;
+        border-radius: 12px;
+        box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
+        transition: transform 0.3s ease;
       }
+
+      .section:hover {
+        transform: translateY(-5px);
+      }
+
       .image-box {
         position: relative;
-        height: 350px;
+        height: 450px;
         background-size: cover;
         background-position: center;
-        border-radius: 10px;
+        border-radius: 12px;
+        overflow: hidden;
+        transition: all 0.3s ease;
       }
+
+      .image-box::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.2);
+        transition: background 0.3s ease;
+      }
+
+      .image-box:hover::before {
+        background: rgba(0, 0, 0, 0.3);
+      }
+
       .image-text {
         position: absolute;
-        bottom: 10px;
-        left: 10px;
-        right: 10px;
-        background-color: rgb(255, 254, 254);
-        color: rgb(179, 19, 19);
-        padding: 15px;
-        font-size: 20px;
-        font-weight: bold;
-        border-radius: 5px;
+        bottom: 30px;
+        left: 20px;
+        right: 20px;
+        background-color: rgba(255, 255, 255, 0.95);
+        color: #333;
+        padding: 20px;
+        font-size: 28px;
+        font-family: "Playfair Display", serif;
+        font-weight: 700;
+        border-radius: 8px;
         text-align: center;
-        box-shadow: 0px 0px 20px black;
-        text-shadow: 0px 0px 14px rgb(93, 13, 74);
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        transition: transform 0.3s ease;
       }
+
+      .image-box:hover .image-text {
+        transform: translateY(-10px);
+      }
+
       .description {
-        margin-top: 15px;
+        margin-top: 30px;
         text-align: center;
+        color: #555;
+        font-size: 18px;
+        line-height: 1.8;
       }
+
       .description ul {
         text-align: left;
-        max-width: 500px;
-        margin: 10px auto;
-        padding-left: 20px;
+        max-width: 600px;
+        margin: 25px auto;
+        padding-left: 30px;
+        list-style-type: none;
       }
+
       .description ul li {
-        margin-bottom: 6px;
-        color: #717171;
-        font-style: italic;
+        margin-bottom: 15px;
+        color: #666;
+        position: relative;
+        padding-left: 25px;
       }
+
+      .description ul li::before {
+        content: "✓";
+        position: absolute;
+        left: 0;
+        color: #e94057;
+        font-weight: bold;
+      }
+
+      .Our-Signature-Menu {
+        padding: 50px 20px;
+        max-width: 1200px;
+        margin: 50px auto;
+        background-color: #fff;
+        border-radius: 12px;
+        box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
+      }
+
+      .Our-Signature-Menu h2 {
+        font-family: "Playfair Display", serif;
+        font-size: 36px;
+        color: #333;
+        text-align: center;
+        margin-bottom: 40px;
+        letter-spacing: 1px;
+      }
+
+      .accordion {
+        background-color: #f4f4f4;
+        color: #333;
+        cursor: pointer;
+        padding: 20px;
+        width: 100%;
+        text-align: left;
+        border: none;
+        outline: none;
+        font-size: 20px;
+        font-weight: 500;
+        margin-bottom: 10px;
+        border-radius: 8px;
+        transition: background-color 0.3s ease, transform 0.3s ease;
+      }
+
+      .accordion:hover,
+      .accordion.active {
+        background-color: #e94057;
+        color: #fff;
+        transform: translateY(-2px);
+      }
+
+      .panel {
+        padding: 20px;
+        background-color: #fff;
+        display: none;
+        overflow: hidden;
+        border-radius: 8px;
+        transition: max-height 0.3s ease;
+      }
+
+      .panel .image-box {
+        margin-bottom: 20px;
+      }
+
       footer {
-        background-color: #c04b4b;
-        padding: 40px;
-        color: #eee;
-        font-family: Arial, Helvetica, sans-serif;
+        background-color: #1a252f;
+        padding: 60px 20px;
+        color: #ecf0f1;
+        font-family: "Roboto", sans-serif;
       }
 
       .footer-container {
         display: flex;
         flex-wrap: wrap;
         justify-content: space-between;
-        gap: 20px;
+        gap: 40px;
         max-width: 1200px;
         margin: auto;
       }
+
       .footer-box {
-        flex: 1 1 200px;
+        flex: 1 1 220px;
       }
+
       .footer-box h4,
       .footer-box h3 {
-        margin-bottom: 10px;
+        margin-bottom: 20px;
         color: #fff;
+        font-family: "Playfair Display", serif;
+        font-size: 24px;
+        letter-spacing: 1px;
       }
+
+      .footer-box p {
+        color: #bdc3c7;
+        line-height: 1.8;
+        font-size: 15px;
+      }
+
       .footer-box ul {
         list-style: none;
         padding: 0;
       }
+
       .footer-box ul li {
-        margin-bottom: 8px;
-        color: #ccc;
+        margin-bottom: 12px;
+        position: relative;
+        padding-left: 25px;
       }
+
+      .footer-box ul li::before {
+        content: "→";
+        position: absolute;
+        left: 0;
+        color: #e94057;
+      }
+
       .footer-box ul li a {
         text-decoration: none;
-        color: #fff;
+        color: #ecf0f1;
+        transition: color 0.3s ease, padding-left 0.3s ease;
       }
+
       .footer-box ul li a:hover {
-        text-decoration: underline;
-        color: #fff;
+        color: #e94057;
+        padding-left: 5px;
       }
+
       .footer-bottom {
         text-align: center;
-        padding-top: 20px;
-        border-top: 1px solid #333;
-        color: #aaa;
+        padding-top: 40px;
+        margin-top: 40px;
+        border-top: 1px solid #34495e;
+        color: #95a5a6;
         font-size: 14px;
+      }
+
+      @media (max-width: 768px) {
+        .topnav {
+          padding: 0 20px;
+        }
+
+        .nav-links {
+          display: none;
+          flex-direction: column;
+          position: absolute;
+          top: 80px;
+          left: 0;
+          width: 100%;
+          background: linear-gradient(to right, #a83a7b, #f05c5c, #ff8c38);
+          padding: 20px;
+        }
+
+        .nav-links.active {
+          display: flex;
+        }
+
+        .hamburger {
+          display: block;
+          cursor: pointer;
+          font-size: 24px;
+          color: #fff;
+        }
+
+        .slideshow-container {
+          height: 400px;
+        }
+
+        .image-box {
+          height: 350px;
+        }
+
+        .image-text {
+          font-size: 24px;
+        }
+
+        .section {
+          margin: 30px auto;
+          padding: 30px 15px;
+        }
+
+        .footer-container {
+          flex-direction: column;
+          gap: 30px;
+        }
+      }
+
+      @media (max-width: 480px) {
+        .image-text {
+          font-size: 20px;
+          padding: 15px;
+        }
+
+        .Our-Signature-Menu h2 {
+          font-size: 28px;
+        }
+
+        .accordion {
+          font-size: 18px;
+        }
       }
     </style>
   </head>
@@ -248,18 +503,19 @@
       <div class="logo">
         <img
           src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTTpVFdxtNB-h2RSGkc_agsijZUzgRdc5y6BA&s"
-          alt="logo"
+          alt="The Culinary Haven Logo"
         />
       </div>
       <div class="nav-links">
-        <a href="#">Home</a>
-        <a href="#">About</a>
+        <a href="#" class="active">Home</a>
+        <a href="#">About Us</a>
         <a href="#">Gallery</a>
-        <a href="#">Menu</a>
+        <a href="#">Our Menu</a>
         <a href="#">Reservations</a>
         <a href="#">Order Online</a>
         <a href="#">Contact</a>
       </div>
+      <div class="hamburger">☰</div>
     </div>
 
     <div class="slideshow-container">
@@ -267,34 +523,223 @@
         <div class="numbertext">1 / 3</div>
         <img
           src="https://media.istockphoto.com/id/1829241109/photo/enjoying-a-brunch-together.jpg?s=612x612&w=0&k=20&c=9awLLRMBLeiYsrXrkgzkoscVU_3RoVwl_HA-OT-srjQ="
-          style="width: 100%"
+          alt="Friends enjoying brunch at our restaurant"
         />
+        <div class="text">Experience Unforgettable Moments</div>
       </div>
 
       <div class="mySlides fade">
         <div class="numbertext">2 / 3</div>
         <img
           src="https://qul.imgix.net/92463374-c045-4e77-abdc-367fbfda4947/527795_sld.jpg"
-          style="width: 100%"
+          alt="A beautiful spread of our signature dishes"
         />
+        <div class="text">A Symphony of Flavors</div>
       </div>
 
       <div class="mySlides fade">
         <div class="numbertext">3 / 3</div>
         <img
           src="https://dynamic-media-cdn.tripadvisor.com/media/photo-o/1a/f1/9d/a8/la-divina-selection.jpg?w=500&h=-1&s=1"
-          style="width: 100%"
+          alt="A selection of our fine dining plates"
         />
+        <div class="text">Crafted with Passion</div>
       </div>
-      <a class="prev" onclick="plusSlides(-1)"><</a>
-      <a class="next" onclick="plusSlides(1)">></a>
+      <a class="prev" onclick="plusSlides(-1)">❮</a>
+      <a class="next" onclick="plusSlides(1)">❯</a>
     </div>
-    <br />
-    <div style="text-align: center">
+
+    <div class="dots-container">
       <span class="dot" onclick="currentSlide(1)"></span>
       <span class="dot" onclick="currentSlide(2)"></span>
       <span class="dot" onclick="currentSlide(3)"></span>
     </div>
+
+    <div class="Our-Signature-Menu">
+      <h2>Our Signature Menu</h2>
+      <button class="accordion">Appetizers</button>
+      <div class="panel">
+        <div
+          class="image-box"
+          style="
+            background-image: url('https://www.southernliving.com/thmb/EEWdxrBorv5JJ-Xpcppjz8EsthU=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/Mini_Potato_Skins_005-2c0f3c0747254639a8f72ea37e1819fd.jpg');
+          "
+        >
+          <div class="image-text">
+            A curated selection of savory delights, crafted for the perfect
+            start to your dining experience.
+          </div>
+        </div>
+        <div
+          class="image-box"
+          style="
+            background-image: url('https://www.southernliving.com/thmb/nxqh-aV-O84T2PaWxYOH9HX2JkE=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/Ritz-Cracker-Party-Sandwiches_beauty_SEO63_58-7cd3bb86f5464b3aa0304a953dfb65b4.jpg');
+          "
+        >
+          <div class="image-text">
+            A burst of flavor in every bite, designed to awaken your palate for
+            the main course to follow.
+          </div>
+        </div>
+        <div
+          class="image-box"
+          style="
+            background-image: url('https://amandascookin.com/wp-content/uploads/2024/12/Appetizer-Veggie-Pizza-RCSQ.jpg');
+          "
+        >
+          <div class="image-text">
+            A wonderful assortment of light and flavorful dishes, perfect for
+            sharing with friends or savoring on your own.
+          </div>
+        </div>
+      </div>
+
+      <button class="accordion">Main Courses</button>
+      <div class="panel">
+        <div
+          class="image-box"
+          style="
+            background-image: url('https://previews.123rf.com/images/relineo/relineo1912/relineo191201765/134776321-main-course-in-a-restaurant.jpg');
+          "
+        >
+          <div class="image-text">
+            The centerpiece of our culinary art, where each dish is a
+            masterpiece crafted with care and skill.
+          </div>
+        </div>
+        <div
+          class="image-box"
+          style="
+            background-image: url('https://www.southernliving.com/thmb/mySkJSwyftC7S0A8LmegACr67bM=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/2548301_QFSHe_646_0_0_0_0_0-2000-cea7272becb34c6d873d7c3befb8e98d.jpg');
+          "
+        >
+          <div class="image-text">
+            An impeccable blend of the finest fresh ingredients and our chefs'
+            signature recipes.
+          </div>
+        </div>
+        <div
+          class="image-box"
+          style="
+            background-image: url('https://www.southernliving.com/thmb/y0F9uBoMxQBV03U0LoHFroId92A=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/27514_ST_Mashies_170-1-dca487b69a7e4ce3b7b512a249847eeb.jpg');
+          "
+        >
+          <div class="image-text">
+            A complete and satisfying dining experience that will make every
+            moment special.
+          </div>
+        </div>
+      </div>
+
+      <button class="accordion">Burgers & Fries</button>
+      <div class="panel">
+        <div
+          class="image-box"
+          style="
+            background-image: url('https://friendlysrestaurants.com/assets/live/img/production/detail/menu/lunch-dinner_999-combohs_all-american-burger-fries.jpg');
+          "
+        >
+          <div class="image-text">
+            We've taken the classic duo of burgers and fries to a new level,
+            where perfection is found in every bite.
+          </div>
+        </div>
+        <div
+          class="image-box"
+          style="
+            background-image: url('https://tones.com/wp-content/uploads/recipe-spiced-burger-and-fries-1.jpg');
+          "
+        >
+          <div class="image-text">
+            An incredible combination of 100% pure juicy patties, soft buns, and
+            our unique signature sauces.
+          </div>
+        </div>
+        <div
+          class="image-box"
+          style="
+            background-image: url('https://img.freepik.com/premium-photo/fast-food-set-burger-french-fries-ketchup-wooden-board-isolated-white-background_1077802-447331.jpg?w=360');
+          "
+        >
+          <div class="image-text">
+            A promise of immense satisfaction and perfect flavor, guaranteed to
+            make your day better.
+          </div>
+        </div>
+      </div>
+
+      <button class="accordion">Desserts</button>
+      <div class="panel">
+        <div
+          class="image-box"
+          style="
+            background-image: url('https://belleofthekitchen.com/wp-content/uploads/2024/06/no-bake-oreo-dessert-1-2.jpg');
+          "
+        >
+          <div class="image-text">
+            The perfect sweet finale to an unforgettable dining experience.
+          </div>
+        </div>
+        <div
+          class="image-box"
+          style="
+            background-image: url('https://www.southernliving.com/thmb/7oCQ4L6HaNIryOHL2Ttxvm8rFHw=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/Heaven-in-a-Bowl_3x2-066-6b099d564c274d04b2984f8c1d37ec8f.jpg');
+          "
+        >
+          <div class="image-text">
+            An artful creation from our pastry chefs, designed to make every
+            moment sweeter.
+          </div>
+        </div>
+        <div
+          class="image-box"
+          style="
+            background-image: url('https://images.immediate.co.uk/production/volatile/sites/30/2020/08/smores700-350-c141a86.jpg?quality=90&resize=556,505');
+          "
+        >
+          <div class="image-text">
+            Treat yourself, because every great meal deserves a truly decadent
+            ending.
+          </div>
+        </div>
+      </div>
+
+      <button class="accordion">Beverages</button>
+      <div class="panel">
+        <div
+          class="image-box"
+          style="
+            background-image: url('https://static.vecteezy.com/system/resources/thumbnails/026/500/574/small_2x/summer-refreshing-beverages-photo.jpg');
+          "
+        >
+          <div class="image-text">
+            Refreshing drinks crafted to complement your meal perfectly.
+          </div>
+        </div>
+        <div
+          class="image-box"
+          style="
+            background-image: url('https://theenterpriseworld.com/wp-content/uploads/2025/03/1-10-Most-Consumed-Beverages-in-the-World-Source-vinut.com_.vn_.jpg');
+          "
+        >
+          <div class="image-text">
+            A curated selection of beverages, from artisanal cocktails to
+            classic sodas.
+          </div>
+        </div>
+        <div
+          class="image-box"
+          style="
+            background-image: url('https://agronfoodprocessing.com/wp-content/uploads/2023/08/drinks.jpg');
+          "
+        >
+          <div class="image-text">
+            Quench your thirst with our unique and flavorful drink offerings.
+          </div>
+        </div>
+      </div>
+    </div>
+
     <div class="section">
       <div
         class="image-box"
@@ -302,13 +747,25 @@
           background-image: url('https://visitingparisbyyourself.com/wp-content/uploads/2020/11/Repas-restaurant-breakfeast-french-croissant-bread-jam-viennoiseries-opt-1.jpg');
         "
       >
-        <div class="image-text">Fast food chain restaurant</div>
+        <div class="image-text">A Culinary Journey for Every Palate</div>
       </div>
       <div class="description">
+        <p>
+          Our restaurant offers a unique dining experience, blending traditional
+          recipes with modern culinary techniques. We are dedicated to creating
+          memorable moments through our food.
+        </p>
         <ul>
-          <li>Flavors? On point. Chef’s kiss</li>
-          <li>This plate deserves a standing ovation 🍛👏</li>
-          <li>Every bite felt like a love letter to my taste buds 💌</li>
+          <li>
+            Expertly crafted dishes using locally-sourced, fresh ingredients.
+          </li>
+          <li>
+            An inviting atmosphere perfect for any occasion, from casual lunches
+            to celebratory dinners.
+          </li>
+          <li>
+            Each plate is a testament to our passion for culinary excellence.
+          </li>
         </ul>
       </div>
     </div>
@@ -320,16 +777,27 @@
           background-image: url('https://www.tastingtable.com/img/gallery/why-french-fries-taste-better-at-a-restaurant-than-at-home/intro-1684168667.jpg');
         "
       >
-        <div class="image-text">Established in 2020</div>
+        <div class="image-text">Our Story: A Tradition of Excellence</div>
       </div>
       <div class="description">
+        <p>
+          Founded in 2020, our vision was to create a haven for food lovers. We
+          believe that a great meal is more than just food; it's an experience
+          to be savored.
+        </p>
         <ul>
-          <li>Vibes + food = perfection combo 🕯️🍽️</li>
-          <li>Came for the food, stayed for the experience ✨</li>
-          <li>This isn’t just a meal, it’s an emotion 🥹🍲</li>
+          <li>
+            A warm and welcoming ambiance that complements our exquisite menu.
+          </li>
+          <li>
+            Dedicated to providing an unparalleled dining experience from start
+            to finish.
+          </li>
+          <li>Our commitment to quality is evident in every dish we serve.</li>
         </ul>
       </div>
     </div>
+
     <div class="section">
       <div
         class="image-box"
@@ -337,51 +805,72 @@
           background-image: url('https://www.tastingtable.com/img/gallery/what-makes-restaurant-burgers-taste-different-from-homemade-burgers-upgrade/l-intro-1662064407.jpg');
         "
       >
-        <div class="image-text">Quality & Hygiene</div>
+        <div class="image-text">Committed to Quality & Hygiene</div>
       </div>
       <div class="description">
+        <p>
+          We adhere to the highest standards of quality and hygiene, ensuring
+          that every meal is both delicious and safe. Your well-being is our top
+          priority.
+        </p>
         <ul>
-          <li>If food is art, this place is the Louvre 🎨🍝</li>
-          <li>From starters to dessert – slayage all the way 😋🔥</li>
-          <li>Someone give the chef a trophy already 🏆👨‍🍳</li>
+          <li>
+            Our kitchen is a masterpiece of culinary art, recognized for its
+            exceptional creations.
+          </li>
+          <li>
+            We take pride in a seamless journey from the finest ingredients to
+            your plate.
+          </li>
+          <li>
+            Our chefs are celebrated artisans, dedicated to the craft of fine
+            dining.
+          </li>
         </ul>
       </div>
     </div>
-    <footer class="footer">
+
+    <footer>
       <div class="footer-container">
         <div class="footer-box">
-          <h3>Kudos</h3>
-          <p>Quality and Hygin maintain food</p>
+          <h3>The Culinary Haven</h3>
+          <p>
+            Experience the art of fine dining where quality ingredients and
+            culinary passion meet. Join us for an unforgettable meal.
+          </p>
         </div>
         <div class="footer-box">
           <h4>Quick Links</h4>
           <ul>
             <li><a href="#">Home</a></li>
-            <li><a href="#">About</a></li>
-            <li><a href="#">Gallery</a></li>
-            <li><a href="#">Menu</a></li>
+            <li><a href="#">About Us</a></li>
+            <li><a href="#">Our Menu</a></li>
             <li><a href="#">Reservations</a></li>
+            <li><a href="#">Contact Us</a></li>
           </ul>
         </div>
         <div class="footer-box">
-          <h4>Services</h4>
+          <h4>Our Services</h4>
           <ul>
-            <li><a href="#">A1 quality</a></li>
-            <li><a href="#">Delivery in 60 minuits</a></li>
-            <li><a href="#">SEO</a></li>
+            <li><a href="#">Private Dining</a></li>
+            <li><a href="#">Catering Services</a></li>
+            <li><a href="#">Online Reservations</a></li>
+            <li><a href="#">Home Delivery</a></li>
           </ul>
         </div>
         <div class="footer-box">
-          <h4>Contact</h4>
+          <h4>Contact Us</h4>
           <ul>
-            <li>Email: info@example.com</li>
-            <li>Phone: =123 456 789</li>
-            <li>Location: City, country</li>
+            <li>Email: contact@culinaryhaven.com</li>
+            <li>Phone: +1 (234) 567-890</li>
+            <li>Location: 123 Gourmet Lane, Foodie City</li>
           </ul>
         </div>
       </div>
       <div class="footer-bottom">
-        <p>&copy; 2025 MyWebsite. All right reserved</p>
+        <p>
+          © <span id="year">2025</span> The Culinary Haven. All Rights Reserved.
+        </p>
       </div>
     </footer>
 
@@ -415,6 +904,29 @@
         slides[slideIndex - 1].style.display = "block";
         dots[slideIndex - 1].className += " active";
       }
+      var acc = document.getElementsByClassName("accordion");
+      var i;
+
+      for (i = 0; i < acc.length; i++) {
+        acc[i].addEventListener("click", function () {
+          this.classList.toggle("active");
+          var panel = this.nextElementSibling;
+          if (panel.style.display === "block") {
+            panel.style.display = "none";
+          } else {
+            panel.style.display = "block";
+          }
+        });
+      }
+    </script>
+    <script>
+      document
+        .querySelector(".hamburger")
+        .addEventListener("click", function () {
+          document.querySelector(".nav-links").classList.toggle("active");
+        });
+
+      document.getElementById("year").textContent = new Date().getFullYear();
     </script>
   </body>
 </html>
